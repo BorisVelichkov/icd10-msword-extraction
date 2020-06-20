@@ -329,12 +329,7 @@ public class ICD10Utils {
 	
 	private static String[] getCodesOfType3(String text) {
 		String codesAsPattern = getCodesAsPattern(text, MATCH_PATTERN_CODES_TYPE_3);
-		String patternToReplace = codesAsPattern.contains("-") ? "-" : "–";
-		String[] codes = new String[10];
-		for (int i = 0; i < codes.length; i++) {
-			codes[i] = codesAsPattern.replace(patternToReplace, String.valueOf(i));
-		}
-		return codes;
+		return new String[] {codesAsPattern.substring(0, 3)};
 	}
 	
 	private static String[] getCodesOfType4(String text) {
